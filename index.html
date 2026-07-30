@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1a3a0a">
+<title>Pecuária</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}:root{--g:#2a6b1a;--gl:#e8f5e4;--gd:#1a3a0a;--r:#c0392b;--rl:#fdeaea;--gold:#b8860b;--goldl:#fdf6e3;--bl:#2471a3;--bll:#eaf4fb;--bg:#f2f4f1;--s:#fff;--bd:#dde3da;--tx:#1a2e12;--tx2:#4a5e42;--mt:#7a8e72;--rad:12px;--ease:cubic-bezier(.22,1,.36,1);--nh:58px}body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.5;min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.login-screen{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:linear-gradient(160deg,var(--gd) 0%,#2d5016 100%)}
+.login-box{background:var(--s);border-radius:20px;padding:32px 24px;width:100%;max-width:360px;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.login-logo{text-align:center;margin-bottom:24px}.login-logo .ico{font-size:48px}.login-logo h2{font-size:1.2rem;font-weight:800;color:var(--gd);margin-top:8px}.login-logo p{font-size:.75rem;color:var(--mt)}
+.login-form{display:flex;flex-direction:column;gap:14px}
+.login-field{display:flex;flex-direction:column;gap:4px}.login-field label{font-size:.72rem;font-weight:600;color:var(--tx2)}.login-field input{padding:12px 14px;border:1px solid var(--bd);border-radius:10px;font-size:.88rem;font-family:inherit;min-height:46px}.login-field input:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(42,107,26,.1)}
+.login-btn{padding:14px;border-radius:10px;background:var(--g);color:#fff;font-size:.88rem;font-weight:700;border:none;cursor:pointer;font-family:inherit;min-height:48px;margin-top:4px}.login-btn:active{transform:scale(.96)}
+.login-btn.secondary{background:transparent;color:var(--g);border:1px solid var(--g);margin-top:0}
+.login-error{background:var(--rl);color:var(--r);padding:10px;border-radius:8px;font-size:.76rem;font-weight:500;text-align:center;display:none}.login-error.on{display:block}
+.login-toggle{text-align:center;font-size:.74rem;color:var(--mt);margin-top:12px;cursor:pointer}.login-toggle b{color:var(--g)}
+.loading{position:fixed;inset:0;background:var(--gd);display:flex;align-items:center;justify-content:center;z-index:9999;color:#fff;font-size:1rem;font-weight:600}.loading.hide{display:none}
+
+.app{display:none;padding-bottom:calc(var(--nh)+20px)}.app.on{display:block}
+.hdr{background:var(--gd);color:#fff;padding:14px 16px;position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between}.hdr h1{font-size:.95rem;font-weight:700}
+.hdr-right{display:flex;align-items:center;gap:8px}.hdr-right span{font-size:.65rem;opacity:.8}.hdr-right button{background:rgba(255,255,255,.15);border:none;color:#fff;padding:5px 10px;border-radius:6px;font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit}
+.bnav{position:fixed;bottom:0;left:0;right:0;height:var(--nh);background:var(--s);border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-around;z-index:100;padding-bottom:env(safe-area-inset-bottom,0)}.nb{display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 4px;border:none;background:none;cursor:pointer;border-radius:8px;transition:.15s;min-width:36px}.nb .ico{font-size:15px}.nb .lbl{font-size:.46rem;font-weight:500;color:var(--mt)}.nb.on{background:var(--gl)}.nb.on .lbl{color:var(--g);font-weight:700}
+.pg{display:none;padding:14px;animation:fi .2s var(--ease)}.pg.on{display:block}@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.tt{font-size:1.05rem;font-weight:700;margin-bottom:2px}.stt{font-size:.72rem;color:var(--mt);margin-bottom:12px}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.sb{background:var(--s);border:1px solid var(--bd);border-radius:10px;padding:12px}.sb .sl{font-size:.58rem;font-weight:600;color:var(--mt);text-transform:uppercase}.sb .sv{font-size:1.05rem;font-weight:800;margin-top:1px}.sv.g{color:var(--g)}.sv.r{color:var(--r)}.sv.gl{color:var(--gold)}.sv.b{color:var(--bl)}
+.cl{display:flex;flex-direction:column;gap:8px}.cd{background:var(--s);border:1px solid var(--bd);border-radius:var(--rad);padding:12px 14px}
+.cd-top{display:flex;align-items:center;gap:10px;margin-bottom:4px}.cd-av{width:32px;height:32px;border-radius:8px;background:var(--gl);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}.cd-info{flex:1;min-width:0}.cd-nm{font-weight:650;font-size:.8rem}.cd-sub{font-size:.64rem;color:var(--mt)}.cd-meta{display:flex;flex-wrap:wrap;gap:3px 10px;font-size:.68rem;color:var(--tx2)}.cd-meta b{font-weight:600;color:var(--tx)}.cd-acts{display:flex;justify-content:flex-end;gap:6px;margin-top:6px;padding-top:6px;border-top:1px solid var(--bd)}
+.bdg{display:inline-block;padding:2px 7px;border-radius:12px;font-size:.56rem;font-weight:600}.bdg-ok{background:var(--gl);color:var(--g)}.bdg-cat{background:var(--bll);color:var(--bl)}.bdg-eq{background:#fff3e0;color:#e65100}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:9px 14px;border-radius:9px;font-size:.74rem;font-weight:600;border:none;cursor:pointer;font-family:inherit;min-height:38px;transition:.12s}.btn:active{transform:scale(.94)}.btn1{background:var(--g);color:#fff}.btn2{background:var(--bg);color:var(--tx);border:1px solid var(--bd)}.btnD{background:var(--rl);color:var(--r)}.btn-s{padding:5px 8px;font-size:.64rem;min-height:28px}.btn-f{width:100%}
+.action-row{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.chips{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;padding-bottom:4px}.chips::-webkit-scrollbar{display:none}.chip{flex-shrink:0;padding:6px 12px;border-radius:18px;font-size:.68rem;font-weight:500;background:var(--s);border:1px solid var(--bd);cursor:pointer;white-space:nowrap}.chip.on{background:var(--g);color:#fff;border-color:var(--g)}
+.srch{width:100%;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;font-size:.8rem;font-family:inherit;background:var(--s);margin-bottom:10px;min-height:40px}.srch:focus{outline:none;border-color:var(--g)}
+.filter-select{padding:7px 10px;border:1px solid var(--bd);border-radius:8px;font-size:.74rem;font-family:inherit;background:var(--s);min-height:34px;margin-bottom:10px;width:100%}
+.section-divider{margin:18px 0 10px;padding-top:14px;border-top:2px solid var(--bd)}.section-title{font-size:.84rem;font-weight:700;margin-bottom:8px}
+.empty{text-align:center;padding:30px 16px;color:var(--mt);font-size:.8rem}
+.msg{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:8px 16px;border-radius:8px;font-size:.74rem;font-weight:600;z-index:300;box-shadow:0 4px 14px rgba(0,0,0,.2);animation:fi .2s var(--ease)}
+.sync-status{font-size:.6rem;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.2);color:#fff}
+@media(min-width:500px){body{max-width:480px;margin:0 auto}.bnav{max-width:480px;left:50%;transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+
+<div class="loading" id="loading">🐄 Carregando...</div>
+
+<!-- LOGIN -->
+<div class="login-screen" id="login-screen" style="display:none">
+  <div class="login-box">
+    <div class="login-logo"><div class="ico">🐄</div><h2>Sistema Pecuária</h2><p>Controle de rebanho na nuvem</p></div>
+    <div class="login-form" id="login-form">
+      <div class="login-error" id="login-error"></div>
+      <div class="login-field"><label>E-mail</label><input type="email" id="auth-email" placeholder="seu@email.com"></div>
+      <div class="login-field"><label>Senha</label><input type="password" id="auth-pass" placeholder="Mínimo 6 caracteres"></div>
+      <button class="login-btn" id="auth-btn" onclick="authAction()">Entrar</button>
+      <button class="login-btn secondary" id="auth-toggle-btn" onclick="toggleAuth()">Criar conta</button>
+      <div class="login-toggle" id="auth-toggle-text" onclick="toggleAuth()">Não tem conta? <b>Cadastre-se</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app">
+<header class="hdr"><div><h1>🐄 Pecuária</h1></div><div class="hdr-right"><span class="sync-status" id="sync-st">☁️ Online</span><span id="hdr-user"></span><button onclick="doLogout()">Sair</button></div></header>
+<div id="pg-dash" class="pg on"></div>
+<div id="pg-rebanho" class="pg"></div>
+<div id="pg-props" class="pg"></div>
+<nav class="bnav">
+  <button class="nb on" data-p="dash"><span class="ico">📊</span><span class="lbl">Painel</span></button>
+  <button class="nb" data-p="rebanho"><span class="ico">🐄</span><span class="lbl">Rebanho</span></button>
+  <button class="nb" data-p="props"><span class="ico">📍</span><span class="lbl">Propriedades</span></button>
+</nav>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<script>
+// FIREBASE CONFIG
+firebase.initializeApp({
+  apiKey: "AIzaSyCnt9tIiW4ABPrMmyFsNnx4Ja79SozRRJo",
+  authDomain: "pecuaria-38e8e.firebaseapp.com",
+  projectId: "pecuaria-38e8e",
+  storageBucket: "pecuaria-38e8e.firebasestorage.app",
+  messagingSenderId: "274817403857",
+  appId: "1:274817403857:web:3cb2868f58b7e015562ef0"
+});
+
+var auth = firebase.auth();
+var db = firebase.firestore();
+var currentUser = null;
+var D = {gado:[],props:[]};
+var isLogin = true;
+
+function $(i){return document.getElementById(i)}
+function msg(t){var m=document.createElement('div');m.className='msg';m.textContent=t;document.body.appendChild(m);setTimeout(function(){m.remove()},1500)}
+
+// AUTH
+function toggleAuth(){
+  isLogin=!isLogin;
+  $('auth-btn').textContent=isLogin?'Entrar':'Criar Conta';
+  $('auth-toggle-btn').textContent=isLogin?'Criar conta':'Já tenho conta';
+  $('auth-toggle-text').innerHTML=isLogin?'Não tem conta? <b>Cadastre-se</b>':'Já tem conta? <b>Entrar</b>';
+  $('login-error').classList.remove('on');
+}
+
+function authAction(){
+  var email=$('auth-email').value.trim();
+  var pass=$('auth-pass').value;
+  if(!email||!pass){showErr('Preencha e-mail e senha');return}
+  $('auth-btn').textContent='Aguarde...';
+  if(isLogin){
+    auth.signInWithEmailAndPassword(email,pass).catch(function(e){showErr(traduzErro(e.code));$('auth-btn').textContent='Entrar'});
+  }else{
+    if(pass.length<6){showErr('Senha mínimo 6 caracteres');$('auth-btn').textContent='Criar Conta';return}
+    auth.createUserWithEmailAndPassword(email,pass).catch(function(e){showErr(traduzErro(e.code));$('auth-btn').textContent='Criar Conta'});
+  }
+}
+
+function showErr(t){$('login-error').textContent=t;$('login-error').classList.add('on')}
+function traduzErro(code){
+  var map={'auth/invalid-email':'E-mail inválido','auth/user-not-found':'Usuário não encontrado','auth/wrong-password':'Senha incorreta','auth/email-already-in-use':'E-mail já cadastrado','auth/weak-password':'Senha muito fraca (mín 6)','auth/invalid-credential':'E-mail ou senha incorretos'};
+  return map[code]||'Erro: '+code;
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&$('login-screen').style.display!=='none')authAction()});
+
+window.doLogout=function(){auth.signOut()};
+
+// AUTH STATE
+auth.onAuthStateChanged(function(user){
+  $('loading').classList.add('hide');
+  if(user){
+    currentUser=user;
+    $('login-screen').style.display='none';
+    $('app').classList.add('on');
+    $('hdr-user').textContent=user.email.split('@')[0];
+    loadData();
+  }else{
+    currentUser=null;
+    $('login-screen').style.display='flex';
+    $('app').classList.remove('on');
+    $('auth-btn').textContent=isLogin?'Entrar':'Criar Conta';
+  }
+});
+
+// FIRESTORE - dados compartilhados (todos veem o mesmo)
+function loadData(){
+  // Listener em tempo real
+  db.collection('gado').onSnapshot(function(snap){
+    D.gado=[];
+    snap.forEach(function(doc){D.gado.push(Object.assign({id:doc.id},doc.data()))});
+    rend(curPg());
+  });
+  db.collection('props').onSnapshot(function(snap){
+    D.props=[];
+    snap.forEach(function(doc){D.props.push(Object.assign({id:doc.id},doc.data()))});
+    rend(curPg());
+  });
+}
+
+// CRUD
+function addAnimal(obj){return db.collection('gado').add(obj)}
+function updAnimal(id,obj){return db.collection('gado').doc(id).update(obj)}
+function delAnimalDB(id){return db.collection('gado').doc(id).delete()}
+function addProp(obj){return db.collection('props').add(obj)}
+function updProp(id,obj){return db.collection('props').doc(id).update(obj)}
+function delPropDB(id){return db.collection('props').doc(id).delete()}
+
+// HELPERS
+function catIdade(nasc,sexo,esp){if(esp==='Equino')return'Equino';if(!nasc)return sexo==='Fêmea'?'Vaca':'Boi';var m=Math.floor((new Date()-new Date(nasc))/(1000*60*60*24*30.44));if(m<=10)return sexo==='Fêmea'?'Bezerra':'Bezerro';if(m<=14)return sexo==='Fêmea'?'Novilha 1':'Novilho 1';if(m<=24)return sexo==='Fêmea'?'Novilha 2':'Novilho 2';return sexo==='Fêmea'?'Vaca':'Boi'}
+function idadeStr(nasc){if(!nasc)return'-';var m=Math.floor((new Date()-new Date(nasc))/(1000*60*60*24*30.44));if(m<1)return'Novo';if(m<12)return m+'m';return Math.floor(m/12)+'a'+(m%12>0?' '+(m%12)+'m':'')}
+function gp(pid){var p=D.props.find(function(x){return x.id===pid});return p?p.nome:'-'}
+function icoA(a){return(a.especie||'Bovino')==='Equino'?'🐴':a.sexo==='Fêmea'?'🐄':'🐂'}
+
+// NAV
+document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.nb').forEach(function(x){x.classList.remove('on')});b.classList.add('on');document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on')});$('pg-'+b.dataset.p).classList.add('on');rend(b.dataset.p)})});
+function curPg(){var b=document.querySelector('.nb.on');return b?b.dataset.p:'dash'}
+function rend(pg){switch(pg){case'dash':rDash();break;case'rebanho':rRebanho();break;case'props':rProps();break}}
+
+// ENTRADA RÁPIDA
+window.addEntrada=function(){
+  var brinco=prompt('Brinco/Nome:');if(!brinco)return;
+  var sexo=prompt('Sexo (Macho/Fêmea):','Macho');
+  var especie=prompt('Espécie (Bovino/Equino):','Bovino');
+  var raca=prompt('Raça:','Nelore')||'';
+  var dono=prompt('Proprietário:','')||'';
+  var prop=D.props.length?D.props[0].id:'';
+  if(D.props.length>1){var nomes=D.props.map(function(p,i){return(i+1)+'. '+p.nome}).join('\n');var idx=prompt('Propriedade:\n'+nomes,'1');prop=D.props[Number(idx)-1]?D.props[Number(idx)-1].id:D.props[0].id}
+  addAnimal({brinco:brinco,sexo:sexo||'Macho',especie:especie||'Bovino',raca:raca,cor:'',peso:0,valor:0,data:new Date().toISOString().slice(0,10),nasc:'',forn:'',dono:dono,prop:prop,desc:'',st:'Ativo',mae:'',pai:''}).then(function(){msg('✓ Animal adicionado!')});
+};
+
+window.delAnimal=function(id){if(!window.confirm('Excluir este animal?'))return;delAnimalDB(id).then(function(){msg('Excluído')})};
+window.delPropFn=function(id){if(!window.confirm('Excluir propriedade?'))return;delPropDB(id).then(function(){msg('Excluído')})};
+
+window.addPropFn=function(){
+  var nome=prompt('Nome da propriedade:');if(!nome)return;
+  var tipo=prompt('Tipo (Fazenda/Sítio/Chácara/Pasto Alugado):','Sítio')||'Sítio';
+  var dono=prompt('Proprietário:','')||'';
+  var local=prompt('Localização:','')||'';
+  addProp({nome:nome,tipo:tipo,dono:dono,local:local,obs:''}).then(function(){msg('✓ Propriedade criada!')});
+};
+
+// RENDERS
+function rDash(){
+  var at=D.gado.filter(function(x){return x.st==='Ativo'});
+  var bovinos=at.filter(function(a){return(a.especie||'Bovino')==='Bovino'});
+  var equinos=at.filter(function(a){return a.especie==='Equino'});
+  var h='<div class="tt">Painel</div><div class="stt">Dados em tempo real na nuvem ☁️</div>';
+  h+='<div class="sgrid"><div class="sb"><div class="sl">Bovinos</div><div class="sv g">'+bovinos.length+'</div></div><div class="sb"><div class="sl">Equinos</div><div class="sv b">'+equinos.length+'</div></div><div class="sb"><div class="sl">Total</div><div class="sv g">'+at.length+'</div></div><div class="sb"><div class="sl">Propriedades</div><div class="sv gl">'+D.props.length+'</div></div></div>';
+  // Por propriedade
+  D.props.forEach(function(p){
+    var an=at.filter(function(a){return a.prop===p.id});if(!an.length)return;
+    var porDono={};an.forEach(function(a){var d=a.dono||'Sem dono';porDono[d]=(porDono[d]||0)+1});
+    h+='<div class="cd" style="margin-bottom:6px"><div style="display:flex;justify-content:space-between"><b style="font-size:.76rem">📍 '+p.nome+'</b><span class="bdg bdg-ok">'+an.length+'</span></div><div class="cd-meta" style="margin-top:4px">';
+    Object.entries(porDono).forEach(function(e){h+='<span>'+e[0]+': <b>'+e[1]+'</b></span>'});
+    h+='</div></div>';
+  });
+  $('pg-dash').innerHTML=h;
+}
+
+var eFilt='',eDonoFilt='';
+window.setEF=function(v){eFilt=v;rRebanho()};
+window.setDonoFilt=function(el){eDonoFilt=el.value;rRebanho()};
+function rRebanho(){
+  var at=D.gado.filter(function(x){return x.st==='Ativo'});
+  var s=($('srch-e')?$('srch-e').value:'').toLowerCase();
+  var list=at.filter(function(a){
+    if(eFilt==='Equinos'&&(a.especie||'Bovino')!=='Equino')return false;
+    if(eFilt==='Vacas'&&catIdade(a.nasc,a.sexo,a.especie)!=='Vaca')return false;
+    if(eFilt==='Bois'&&catIdade(a.nasc,a.sexo,a.especie)!=='Boi')return false;
+    if(eFilt&&eFilt!=='Equinos'&&eFilt!=='Vacas'&&eFilt!=='Bois'&&catIdade(a.nasc,a.sexo,a.especie)!==eFilt)return false;
+    if(eDonoFilt&&a.dono!==eDonoFilt)return false;
+    if(s&&(a.brinco||'').toLowerCase().indexOf(s)<0&&(a.raca||'').toLowerCase().indexOf(s)<0&&(a.dono||'').toLowerCase().indexOf(s)<0)return false;
+    return true;
+  });
+  var donos=[];at.forEach(function(a){if(a.dono&&donos.indexOf(a.dono)<0)donos.push(a.dono)});donos.sort();
+  var cats=['','Equinos','Vacas','Bois','Bezerro','Bezerra','Novilho 1','Novilha 1','Novilho 2','Novilha 2'];
+  var h='<div class="tt">Rebanho</div><div class="stt">'+at.length+' ativos | mostrando '+Math.min(list.length,50)+'</div>';
+  h+='<div class="action-row"><button class="btn btn1" onclick="addEntrada()">+ Entrada</button></div>';
+  h+='<input class="srch" id="srch-e" type="text" placeholder="🔍 Buscar brinco, raça, dono..." value="'+s+'" oninput="rRebanho()">';
+  h+='<select class="filter-select" onchange="setDonoFilt(this)"><option value="">👤 Todos proprietários</option>';
+  donos.forEach(function(d){h+='<option value="'+d+'"'+(eDonoFilt===d?' selected':'')+'>'+d+'</option>'});h+='</select>';
+  h+='<div class="chips">';cats.forEach(function(c){h+='<div class="chip'+(eFilt===c?' on':'')+'" onclick="setEF(\''+c+'\')">'+(c||'Todos')+'</div>'});h+='</div>';
+  h+='<div class="cl">';
+  if(list.length){
+    list.slice(0,50).forEach(function(a){
+      var cat=catIdade(a.nasc,a.sexo,a.especie);
+      h+='<div class="cd"><div class="cd-top"><div class="cd-av">'+icoA(a)+'</div><div class="cd-info"><div class="cd-nm">'+a.brinco+'</div><div class="cd-sub">'+a.raca+' • '+a.sexo+'</div></div><span class="bdg '+(cat==='Equino'?'bdg-eq':'bdg-cat')+'">'+cat+'</span></div>';
+      h+='<div class="cd-meta"><span>Dono: <b>'+(a.dono||'-')+'</b></span><span>'+gp(a.prop)+'</span><span>'+idadeStr(a.nasc)+'</span></div>';
+      h+='<div class="cd-acts"><button class="btn btn-s btnD" onclick="delAnimal(\''+a.id+'\')">🗑</button></div></div>';
+    });
+  }else{h+='<div class="empty">Nenhum animal encontrado</div>'}
+  h+='</div>';
+  $('pg-rebanho').innerHTML=h;
+}
+window.rRebanho=rRebanho;
+
+function rProps(){
+  var h='<div class="tt">Propriedades</div><div class="action-row"><button class="btn btn1" onclick="addPropFn()">+ Nova Propriedade</button></div><div class="cl">';
+  if(D.props.length){
+    D.props.forEach(function(p){
+      var ct=D.gado.filter(function(a){return a.prop===p.id&&a.st==='Ativo'}).length;
+      h+='<div class="cd"><div class="cd-top"><div class="cd-av">📍</div><div class="cd-info"><div class="cd-nm">'+p.nome+'</div><div class="cd-sub">'+p.tipo+' • '+(p.local||'-')+'</div></div><span class="bdg bdg-ok">'+ct+'</span></div>';
+      h+='<div class="cd-meta"><span>Dono: <b>'+(p.dono||'-')+'</b></span></div>';
+      h+='<div class="cd-acts"><button class="btn btn-s btnD" onclick="delPropFn(\''+p.id+'\')">🗑</button></div></div>';
+    });
+  }else{h+='<div class="empty">Nenhuma propriedade</div>'}
+  h+='</div>';$('pg-props').innerHTML=h;
+}
+</script>
+</body>
+</html>
