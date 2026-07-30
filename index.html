@@ -120,50 +120,24 @@
 </head>
 <body>
 <div class="loading" id="loading">🐄 Carregando...</div>
-<div class="login-screen" id="login-screen">
-<div class="login-box"><div class="login-logo"><div class="ico">🐄</div><h2>Sistema Pecuária</h2><p>Controle na nuvem</p></div>
-<div class="lf"><div class="lerr" id="lerr"></div><div class="lfl"><label>E-mail</label><input type="email" id="au-email" placeholder="seu@email.com"></div><div class="lfl"><label>Senha</label><input type="password" id="au-pass" placeholder="Mínimo 6 caracteres"></div><button class="lbtn" id="au-btn" onclick="authAct()">Entrar</button><button class="lbtn sec" id="au-tog" onclick="togAuth()">Criar conta</button></div></div></div>
+<div class="login-screen" id="login-screen"><div class="login-box"><div class="login-logo"><div class="ico">🐄</div><h2>Sistema Pecuária</h2><p>Controle na nuvem</p></div><div class="lf"><div class="lerr" id="lerr"></div><div class="lfl"><label>E-mail</label><input type="email" id="au-email" placeholder="seu@email.com"></div><div class="lfl"><label>Senha</label><input type="password" id="au-pass" placeholder="Mínimo 6 caracteres"></div><button class="lbtn" id="au-btn" onclick="authAct()">Entrar</button><button class="lbtn sec" onclick="togAuth()">Criar conta</button></div></div></div>
 <div class="app" id="app">
 <header class="hdr"><h1>🐄 Pecuária</h1><div class="hdr-r"><span id="hdr-u"></span><button onclick="logout()">Sair</button></div></header>
 <div id="pg-dash" class="pg on"></div><div id="pg-reb" class="pg"></div><div id="pg-vend" class="pg"></div><div id="pg-desp" class="pg"></div><div id="pg-prop" class="pg"></div>
 <nav class="bnav"><button class="nb on" data-p="dash"><span class="ico">📊</span><span class="lbl">Painel</span></button><button class="nb" data-p="reb"><span class="ico">🐄</span><span class="lbl">Rebanho</span></button><button class="nb" data-p="vend"><span class="ico">💰</span><span class="lbl">Vendas</span></button><button class="nb" data-p="desp"><span class="ico">💸</span><span class="lbl">Despesas</span></button><button class="nb" data-p="prop"><span class="ico">📍</span><span class="lbl">Propried.</span></button></nav>
 </div>
 <!-- SHEETS -->
-<div class="sho" id="sh-gado"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3 id="sh-gado-t">Entrada</h3><button class="sht-x" onclick="closeSh('sh-gado')">✕</button></div><div class="sht-b"><div class="fstk">
-<div class="frow"><div class="fld"><label>Brinco/Nome</label><input id="fg-b"></div><div class="fld"><label>Sexo</label><select id="fg-sx"><option>Macho</option><option>Fêmea</option></select></div></div>
-<div class="frow"><div class="fld"><label>Espécie</label><select id="fg-esp"><option>Bovino</option><option>Equino</option></select></div><div class="fld"><label>Raça</label><input id="fg-rc"></div></div>
-<div class="frow"><div class="fld"><label>Cor</label><input id="fg-cr"></div><div class="fld"><label>Peso (kg)</label><input type="number" id="fg-ps"></div></div>
-<div class="frow"><div class="fld"><label>Valor (R$)</label><input type="number" id="fg-vl"></div><div class="fld"><label>Data Nasc.</label><input type="date" id="fg-ns"></div></div>
-<div class="frow"><div class="fld"><label>Proprietário</label><input id="fg-dn"></div><div class="fld"><label>Propriedade</label><select id="fg-pr"></select></div></div>
-<div class="fld"><label>📷 Foto</label><div class="photo-up"><input type="file" accept="image/*" id="fg-ft" onchange="prevF(this,'fg-pv')"><p>Câmera ou galeria</p></div><img id="fg-pv" class="photo-prev"></div>
-</div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveGado()">✓ Salvar</button></div></div></div>
+<div class="sho" id="sh-gado"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3 id="sh-gado-t">Entrada</h3><button class="sht-x" onclick="closeSh('sh-gado')">✕</button></div><div class="sht-b"><div class="fstk"><div class="frow"><div class="fld"><label>Brinco/Nome</label><input id="fg-b"></div><div class="fld"><label>Sexo</label><select id="fg-sx"><option>Macho</option><option>Fêmea</option></select></div></div><div class="frow"><div class="fld"><label>Espécie</label><select id="fg-esp"><option>Bovino</option><option>Equino</option></select></div><div class="fld"><label>Raça</label><input id="fg-rc"></div></div><div class="frow"><div class="fld"><label>Cor</label><input id="fg-cr"></div><div class="fld"><label>Peso (kg)</label><input type="number" id="fg-ps"></div></div><div class="frow"><div class="fld"><label>Valor (R$)</label><input type="number" id="fg-vl"></div><div class="fld"><label>Data Nasc.</label><input type="date" id="fg-ns"></div></div><div class="frow"><div class="fld"><label>Proprietário</label><input id="fg-dn"></div><div class="fld"><label>Propriedade</label><select id="fg-pr"></select></div></div><div class="fld"><label>📷 Foto</label><div class="photo-up"><input type="file" accept="image/*" id="fg-ft" onchange="prevF(this,'fg-pv')"><p>Câmera ou galeria</p></div><img id="fg-pv" class="photo-prev"></div></div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveGado()">✓ Salvar</button></div></div></div>
 
-<div class="sho" id="sh-venda"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3>Venda</h3><button class="sht-x" onclick="closeSh('sh-venda')">✕</button></div><div class="sht-b"><div class="fstk">
-<div class="frow"><div class="fld"><label>Comprador</label><input id="fv-cp"></div><div class="fld"><label>Data</label><input type="date" id="fv-dt"></div></div>
-<div style="border:1px solid var(--bd);border-radius:9px;padding:9px;background:var(--bg)"><div style="font-weight:600;font-size:.7rem;margin-bottom:5px">Adicionar animal:</div>
-<div class="fld" style="margin-bottom:5px"><label>Animal</label><select id="fv-an" onchange="autoR()"></select></div>
-<div class="frow"><div class="fld"><label>Peso (kg)</label><input type="number" id="fv-ps" oninput="calcA()"></div><div class="fld"><label>Rend %</label><select id="fv-rd" onchange="calcA()"><option value="50">50%</option><option value="45">45%</option></select></div></div>
-<div class="frow" style="margin-top:5px"><div class="fld"><label>R$/@</label><input type="number" id="fv-ar" step=".01" oninput="calcA()"></div><div class="fld"><label>Total</label><input type="number" id="fv-tt" step=".01"></div></div>
-<div class="calc-info" id="calc-i" style="display:none"></div>
-<button class="btn btn2 btn-f" style="margin-top:7px" onclick="addVI()">+ Adicionar</button></div>
-<div id="vl-list"></div><div id="vl-tot" style="font-size:.78rem;font-weight:700;text-align:right"></div>
-</div></div><div class="sht-f" style="display:flex;gap:7px"><button class="btn btn2" style="flex:1" onclick="closeSh('sh-venda')">Cancelar</button><button class="btn btn1" style="flex:2" onclick="saveVenda()">✓ Finalizar</button></div></div></div>
+<div class="sho" id="sh-mov"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3>Transferir Animal</h3><button class="sht-x" onclick="closeSh('sh-mov')">✕</button></div><div class="sht-b"><div class="fstk"><div class="fld"><label>Animal</label><select id="fm-an" onchange="updMD()"></select></div><div class="frow"><div class="fld"><label>Origem (atual)</label><select id="fm-de" disabled></select></div><div class="fld"><label>Destino</label><select id="fm-pa"></select></div></div></div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveMov()">✓ Transferir</button></div></div></div>
 
-<div class="sho" id="sh-desp"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3 id="sh-desp-t">Despesa</h3><button class="sht-x" onclick="closeSh('sh-desp')">✕</button></div><div class="sht-b"><div class="fstk">
-<div class="frow"><div class="fld"><label>Categoria</label><select id="fd-ct"><option>Ração</option><option>Sal Mineral</option><option>Remédio/Vacina</option><option>Roçada</option><option>Aluguel Pasto</option><option>Cerca</option><option>Frete</option><option>Mão de Obra</option><option>Combustível</option><option>Outros</option></select></div><div class="fld"><label>Valor (R$)</label><input type="number" id="fd-vl"></div></div>
-<div class="frow"><div class="fld"><label>Data</label><input type="date" id="fd-dt"></div><div class="fld"><label>Propriedade</label><select id="fd-pr"></select></div></div>
-<div class="fld"><label>Descrição</label><textarea id="fd-ds"></textarea></div>
-</div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveDesp()">✓ Salvar</button></div></div></div>
+<div class="sho" id="sh-perda"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3>Morte/Roubo</h3><button class="sht-x" onclick="closeSh('sh-perda')">✕</button></div><div class="sht-b"><div class="fstk"><div class="frow"><div class="fld"><label>Animal</label><select id="fpe-an"></select></div><div class="fld"><label>Tipo</label><select id="fpe-tp"><option>Morte</option><option>Roubo</option></select></div></div><div class="fld"><label>Causa</label><input id="fpe-cs"></div></div></div><div class="sht-f"><button class="btn btnD btn-f" onclick="savePerda()">Registrar</button></div></div></div>
 
-<div class="sho" id="sh-prop"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3 id="sh-prop-t">Propriedade</h3><button class="sht-x" onclick="closeSh('sh-prop')">✕</button></div><div class="sht-b"><div class="fstk">
-<div class="frow"><div class="fld"><label>Nome</label><input id="fp-nm"></div><div class="fld"><label>Tipo</label><select id="fp-tp"><option>Fazenda</option><option>Sítio</option><option>Chácara</option><option>Pasto Alugado</option></select></div></div>
-<div class="frow"><div class="fld"><label>Proprietário</label><input id="fp-dn"></div><div class="fld"><label>Local</label><input id="fp-lc"></div></div>
-</div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveProp()">✓ Salvar</button></div></div></div>
+<div class="sho" id="sh-venda"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3>Venda</h3><button class="sht-x" onclick="closeSh('sh-venda')">✕</button></div><div class="sht-b"><div class="fstk"><div class="frow"><div class="fld"><label>Comprador</label><input id="fv-cp"></div><div class="fld"><label>Data</label><input type="date" id="fv-dt"></div></div><div style="border:1px solid var(--bd);border-radius:9px;padding:9px;background:var(--bg)"><div style="font-weight:600;font-size:.7rem;margin-bottom:5px">Adicionar animal:</div><div class="fld" style="margin-bottom:5px"><label>Animal</label><select id="fv-an" onchange="autoR()"></select></div><div class="frow"><div class="fld"><label>Peso (kg)</label><input type="number" id="fv-ps" oninput="calcA()"></div><div class="fld"><label>Rend %</label><select id="fv-rd" onchange="calcA()"><option value="50">50%</option><option value="45">45%</option></select></div></div><div class="frow" style="margin-top:5px"><div class="fld"><label>R$/@</label><input type="number" id="fv-ar" step=".01" oninput="calcA()"></div><div class="fld"><label>Total</label><input type="number" id="fv-tt" step=".01"></div></div><div class="calc-info" id="calc-i" style="display:none"></div><button class="btn btn2 btn-f" style="margin-top:7px" onclick="addVI()">+ Adicionar</button></div><div id="vl-list"></div><div id="vl-tot" style="font-size:.78rem;font-weight:700;text-align:right"></div></div></div><div class="sht-f" style="display:flex;gap:7px"><button class="btn btn2" style="flex:1" onclick="closeSh('sh-venda')">Cancelar</button><button class="btn btn1" style="flex:2" onclick="saveVenda()">✓ Finalizar</button></div></div></div>
 
-<div class="sho" id="sh-perda"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3>Morte/Roubo</h3><button class="sht-x" onclick="closeSh('sh-perda')">✕</button></div><div class="sht-b"><div class="fstk">
-<div class="frow"><div class="fld"><label>Animal</label><select id="fpe-an"></select></div><div class="fld"><label>Tipo</label><select id="fpe-tp"><option>Morte</option><option>Roubo</option></select></div></div>
-<div class="fld"><label>Causa</label><input id="fpe-cs"></div>
-</div></div><div class="sht-f"><button class="btn btnD btn-f" onclick="savePerda()">Registrar</button></div></div></div>
+<div class="sho" id="sh-desp"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3 id="sh-desp-t">Despesa</h3><button class="sht-x" onclick="closeSh('sh-desp')">✕</button></div><div class="sht-b"><div class="fstk"><div class="frow"><div class="fld"><label>Categoria</label><select id="fd-ct"><option>Ração</option><option>Sal Mineral</option><option>Remédio/Vacina</option><option>Roçada</option><option>Aluguel Pasto</option><option>Cerca</option><option>Frete</option><option>Mão de Obra</option><option>Combustível</option><option>Outros</option></select></div><div class="fld"><label>Valor (R$)</label><input type="number" id="fd-vl"></div></div><div class="frow"><div class="fld"><label>Data</label><input type="date" id="fd-dt"></div><div class="fld"><label>Propriedade</label><select id="fd-pr"></select></div></div><div class="fld"><label>Descrição</label><textarea id="fd-ds"></textarea></div></div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveDesp()">✓ Salvar</button></div></div></div>
+
+<div class="sho" id="sh-prop"><div class="sht"><div class="sht-bar"></div><div class="sht-h"><h3 id="sh-prop-t">Propriedade</h3><button class="sht-x" onclick="closeSh('sh-prop')">✕</button></div><div class="sht-b"><div class="fstk"><div class="frow"><div class="fld"><label>Nome</label><input id="fp-nm"></div><div class="fld"><label>Tipo</label><select id="fp-tp"><option>Fazenda</option><option>Sítio</option><option>Chácara</option><option>Pasto Alugado</option></select></div></div><div class="frow"><div class="fld"><label>Proprietário</label><input id="fp-dn"></div><div class="fld"><label>Local</label><input id="fp-lc"></div></div></div></div><div class="sht-f"><button class="btn btn1 btn-f" onclick="saveProp()">✓ Salvar</button></div></div></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
@@ -181,13 +155,12 @@ function gp(id){var p=P.find(function(x){return x.id===id});return p?p.nome:'-'}
 function icoA(a){if(a.foto)return'<img src="'+a.foto+'">';return(a.especie||'Bovino')==='Equino'?'🐴':a.sexo==='Fêmea'?'🐄':'🐂'}
 
 // AUTH
-function togAuth(){isLogin=!isLogin;$('au-btn').textContent=isLogin?'Entrar':'Criar Conta';$('au-tog').textContent=isLogin?'Criar conta':'Já tenho conta';$('lerr').classList.remove('on')}
-function authAct(){var e=$('au-email').value.trim(),p=$('au-pass').value;if(!e||!p){sErr('Preencha tudo');return}$('au-btn').textContent='...';if(isLogin){auth.signInWithEmailAndPassword(e,p).catch(function(er){sErr(tErr(er.code));$('au-btn').textContent='Entrar'})}else{if(p.length<6){sErr('Senha mín 6');$('au-btn').textContent='Criar Conta';return}auth.createUserWithEmailAndPassword(e,p).catch(function(er){sErr(tErr(er.code));$('au-btn').textContent='Criar Conta'})}}
+window.togAuth=function(){isLogin=!isLogin;$('au-btn').textContent=isLogin?'Entrar':'Criar Conta';$('lerr').classList.remove('on')};
+window.authAct=function(){var e=$('au-email').value.trim(),p=$('au-pass').value;if(!e||!p){sErr('Preencha tudo');return}$('au-btn').textContent='...';if(isLogin){auth.signInWithEmailAndPassword(e,p).catch(function(er){sErr(tErr(er.code));$('au-btn').textContent='Entrar'})}else{if(p.length<6){sErr('Senha mín 6');$('au-btn').textContent='Criar Conta';return}auth.createUserWithEmailAndPassword(e,p).catch(function(er){sErr(tErr(er.code));$('au-btn').textContent='Criar Conta'})}};
 function sErr(t){$('lerr').textContent=t;$('lerr').classList.add('on')}
 function tErr(c){var m={'auth/invalid-email':'E-mail inválido','auth/user-not-found':'Não encontrado','auth/wrong-password':'Senha errada','auth/email-already-in-use':'E-mail já usado','auth/weak-password':'Senha fraca','auth/invalid-credential':'E-mail ou senha errados'};return m[c]||c}
 window.logout=function(){auth.signOut()};
 document.addEventListener('keydown',function(e){if(e.key==='Enter'&&$('login-screen').classList.contains('on'))authAct()});
-
 auth.onAuthStateChanged(function(u){$('loading').classList.add('hide');if(u){U=u;$('login-screen').classList.remove('on');$('app').classList.add('on');$('hdr-u').textContent=u.email.split('@')[0];loadAll()}else{U=null;$('login-screen').classList.add('on');$('app').classList.remove('on');$('au-btn').textContent='Entrar'}});
 
 function loadAll(){
@@ -202,16 +175,23 @@ document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('click',
 function curP(){var b=document.querySelector('.nb.on');return b?b.dataset.p:'dash'}
 window.openSh=function(i){upSel();$(i).classList.add('on')};window.closeSh=function(i){$(i).classList.remove('on');if(i==='sh-venda')vItens=[]};
 document.querySelectorAll('.sho').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o){o.classList.remove('on');if(o.id==='sh-venda')vItens=[]}})});
-function upSel(){var po='<option value="">Selecione...</option>'+P.map(function(x){return'<option value="'+x.id+'">'+x.nome+'</option>'}).join('');['fg-pr','fd-pr'].forEach(function(i){var e=$(i);if(e)e.innerHTML=po});var at=G.filter(function(x){return x.st==='Ativo'});var al='<option value="">Selecione...</option>'+at.map(function(x){return'<option value="'+x.id+'">['+x.brinco+'] '+catI(x.nasc,x.sexo,x.especie)+'</option>'}).join('');['fv-an','fpe-an'].forEach(function(i){var e=$(i);if(e)e.innerHTML=al})}
+function upSel(){var po='<option value="">Selecione...</option>'+P.map(function(x){return'<option value="'+x.id+'">'+x.nome+'</option>'}).join('');['fg-pr','fd-pr','fm-pa'].forEach(function(i){var e=$(i);if(e)e.innerHTML=po});var at=G.filter(function(x){return x.st==='Ativo'});var al='<option value="">Selecione...</option>'+at.map(function(x){return'<option value="'+x.id+'">['+x.brinco+'] '+catI(x.nasc,x.sexo,x.especie)+'</option>'}).join('');['fv-an','fpe-an','fm-an'].forEach(function(i){var e=$(i);if(e)e.innerHTML=al})}
 
 // FOTO
 window.prevF=function(inp,pid){var f=inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(e){var img=$(pid);img.src=e.target.result;img.style.display='block'};r.readAsDataURL(f)};
 function getFoto(pid){var img=$(pid);return(img&&img.style.display!=='none'&&img.src&&img.src.indexOf('data:')===0)?img.src:''}
 
-// SAVE GADO
+// GADO
 window.editGado=function(id){editGId=id||null;if(id){var a=G.find(function(x){return x.id===id});if(!a)return;$('sh-gado-t').textContent='Editar';$('fg-b').value=a.brinco;$('fg-sx').value=a.sexo;$('fg-esp').value=a.especie||'Bovino';$('fg-rc').value=a.raca||'';$('fg-cr').value=a.cor||'';$('fg-ps').value=a.peso||'';$('fg-vl').value=a.valor||'';$('fg-ns').value=a.nasc||'';$('fg-dn').value=a.dono||'';if(a.foto){$('fg-pv').src=a.foto;$('fg-pv').style.display='block'}else $('fg-pv').style.display='none';setTimeout(function(){$('fg-pr').value=a.prop||''},50)}else{$('sh-gado-t').textContent='Entrada de Gado';['fg-b','fg-rc','fg-cr','fg-ps','fg-vl','fg-ns','fg-dn'].forEach(function(i){$(i).value=''});$('fg-pv').style.display='none'}openSh('sh-gado')};
 window.saveGado=function(){var b=$('fg-b').value;if(!b){alert('Preencha brinco');return}var foto=getFoto('fg-pv');var obj={brinco:b,sexo:$('fg-sx').value,especie:$('fg-esp').value,raca:$('fg-rc').value,cor:$('fg-cr').value,peso:Number($('fg-ps').value)||0,valor:Number($('fg-vl').value)||0,nasc:$('fg-ns').value,dono:$('fg-dn').value,prop:$('fg-pr').value,st:'Ativo',foto:foto||''};if(editGId){var old=G.find(function(x){return x.id===editGId});if(!foto&&old&&old.foto)obj.foto=old.foto;fdb.collection('gado').doc(editGId).update(obj).then(function(){msg('✓ Atualizado');closeSh('sh-gado');editGId=null})}else{fdb.collection('gado').add(obj).then(function(){msg('✓ Adicionado');closeSh('sh-gado')})}$('fg-pv').style.display='none'};
 window.delG=function(id){if(!window.confirm('Excluir?'))return;fdb.collection('gado').doc(id).delete().then(function(){msg('Excluído')})};
+
+// MOVIMENTAÇÃO / TRANSFERÊNCIA
+window.updMD=function(){var a=G.find(function(x){return x.id===$('fm-an').value});if(a)$('fm-de').innerHTML='<option value="'+a.prop+'">'+gp(a.prop)+'</option>'};
+window.saveMov=function(){var aid=$('fm-an').value,para=$('fm-pa').value;if(!aid||!para){alert('Selecione animal e destino');return}fdb.collection('gado').doc(aid).update({prop:para}).then(function(){msg('✓ Transferido!');closeSh('sh-mov')})};
+
+// PERDA
+window.savePerda=function(){var aid=$('fpe-an').value;if(!aid){alert('Selecione');return}fdb.collection('gado').doc(aid).update({st:'Morto'}).then(function(){msg('Registrado');closeSh('sh-perda')})};
 
 // VENDA
 window.autoR=function(){var a=G.find(function(x){return x.id===$('fv-an').value});if(a)$('fv-rd').value=a.sexo==='Fêmea'?'45':'50';calcA()};
@@ -219,7 +199,7 @@ window.calcA=function(){var p=Number($('fv-ps').value),r=Number($('fv-rd').value
 window.addVI=function(){var aid=$('fv-an').value;if(!aid){alert('Selecione');return}var p=Number($('fv-ps').value),r=Number($('fv-rd').value),a=Number($('fv-ar').value),t=Number($('fv-tt').value);if(!t){alert('Preencha');return}var an=G.find(function(x){return x.id===aid});vItens.push({animal:aid,nome:an?'['+an.brinco+']':'',peso:p,rend:r,arr:a,arrobas:(p*(r/100))/15,total:t});$('fv-ps').value='';$('fv-ar').value='';$('fv-tt').value='';$('calc-i').style.display='none';rvl()};
 window.rmVI=function(i){vItens.splice(i,1);rvl()};
 function rvl(){var tg=vItens.reduce(function(s,i){return s+i.total},0);$('vl-list').innerHTML=vItens.map(function(it,i){return'<div class="vi"><span>'+it.nome+' '+it.peso+'kg '+it.arrobas.toFixed(1)+'@</span><span><b>'+money(it.total)+'</b> <button class="btn btn-s btnD" onclick="rmVI('+i+')">✕</button></span></div>'}).join('');$('vl-tot').textContent=vItens.length?'TOTAL: '+money(tg):''}
-window.saveVenda=function(){if(!vItens.length){alert('Adicione');return}var v={comp:$('fv-cp').value||'-',data:$('fv-dt').value||new Date().toISOString().slice(0,10),itens:vItens.slice()};vItens.forEach(function(it){fdb.collection('gado').doc(it.animal).update({st:'Vendido'})});fdb.collection('vendas').add(v).then(function(){msg('✓ Venda registrada');closeSh('sh-venda');$('fv-cp').value='';vItens=[]})};
+window.saveVenda=function(){if(!vItens.length){alert('Adicione');return}var v={comp:$('fv-cp').value||'-',data:$('fv-dt').value||new Date().toISOString().slice(0,10),itens:vItens.slice()};vItens.forEach(function(it){fdb.collection('gado').doc(it.animal).update({st:'Vendido'})});fdb.collection('vendas').add(v).then(function(){msg('✓ Venda registrada');closeSh('sh-venda');vItens=[]})};
 
 // DESPESA
 window.editDesp=function(id){editDId=id||null;if(id){var d=DE.find(function(x){return x.id===id});if(!d)return;$('sh-desp-t').textContent='Editar';$('fd-ct').value=d.cat;$('fd-vl').value=d.valor;$('fd-dt').value=d.data;$('fd-ds').value=d.desc||'';setTimeout(function(){$('fd-pr').value=d.prop||''},50)}else{$('sh-desp-t').textContent='Nova Despesa';['fd-vl','fd-dt','fd-ds'].forEach(function(i){$(i).value=''})}openSh('sh-desp')};
@@ -231,9 +211,6 @@ window.editProp=function(id){editPId=id||null;if(id){var p=P.find(function(x){re
 window.saveProp=function(){var n=$('fp-nm').value;if(!n){alert('Preencha');return}var obj={nome:n,tipo:$('fp-tp').value,dono:$('fp-dn').value,local:$('fp-lc').value};if(editPId){fdb.collection('props').doc(editPId).update(obj).then(function(){msg('✓');closeSh('sh-prop');editPId=null})}else{fdb.collection('props').add(obj).then(function(){msg('✓ Criada');closeSh('sh-prop')})}};
 window.delP=function(id){if(!window.confirm('Excluir?'))return;fdb.collection('props').doc(id).delete().then(function(){msg('Excluído')})};
 
-// PERDA
-window.savePerda=function(){var aid=$('fpe-an').value;if(!aid){alert('Selecione');return}fdb.collection('gado').doc(aid).update({st:'Morto'}).then(function(){msg('Registrado');closeSh('sh-perda')})};
-
 // RENDERS
 function rend(pg){switch(pg){case'dash':rDash();break;case'reb':rReb();break;case'vend':rVend();break;case'desp':rDesp();break;case'prop':rProp();break}}
 
@@ -241,10 +218,11 @@ function rDash(){
 var at=G.filter(function(x){return x.st==='Ativo'}),bov=at.filter(function(a){return(a.especie||'Bovino')==='Bovino'}),eq=at.filter(function(a){return a.especie==='Equino'});
 var td=DE.reduce(function(s,x){return s+Number(x.valor||0)},0);
 var tv=V.reduce(function(s,v){return s+(v.itens||[]).reduce(function(s2,i){return s2+Number(i.total||0)},0)},0);
-var h='<div class="tt">Painel</div><div class="stt">☁️ Dados em tempo real</div>';
+var h='<div class="tt">Painel</div><div class="stt">☁️ Tempo real</div>';
 h+='<div class="sgrid"><div class="sb"><div class="sl">Bovinos</div><div class="sv g">'+bov.length+'</div></div><div class="sb"><div class="sl">Equinos</div><div class="sv b">'+eq.length+'</div></div><div class="sb"><div class="sl">Total</div><div class="sv g">'+at.length+'</div></div><div class="sb"><div class="sl">Vendas</div><div class="sv gl">'+money(tv)+'</div></div></div>';
-P.forEach(function(p){var an=at.filter(function(a){return a.prop===p.id});if(!an.length)return;var pd={};an.forEach(function(a){var d=a.dono||'?';pd[d]=(pd[d]||0)+1});h+='<div class="cd" style="margin-bottom:6px"><div style="display:flex;justify-content:space-between"><b style="font-size:.74rem">📍 '+p.nome+'</b><span class="bdg bdg-ok">'+an.length+'</span></div><div class="cd-meta" style="margin-top:3px">';Object.entries(pd).forEach(function(e){h+='<span>'+e[0]+': <b>'+e[1]+'</b></span>'});h+='</div></div>'});
+P.forEach(function(p){var an=at.filter(function(a){return a.prop===p.id});if(!an.length)return;var pd={};an.forEach(function(a){var d=a.dono||'?';pd[d]=(pd[d]||0)+1});h+='<div class="cd" style="margin-bottom:6px"><div style="display:flex;justify-content:space-between"><b style="font-size:.72rem">📍 '+p.nome+'</b><span class="bdg bdg-ok">'+an.length+'</span></div><div class="cd-meta" style="margin-top:3px">';Object.entries(pd).forEach(function(e){h+='<span>'+e[0]+': <b>'+e[1]+'</b></span>'});h+='</div></div>'});
 if(td>0){h+='<div class="section-divider"></div><div class="section-title">💸 Despesas: '+money(td)+'</div>'}
+if(tv>0){h+='<div class="section-divider"></div><div class="section-title">💰 Vendas: '+money(tv)+'</div>'}
 $('pg-dash').innerHTML=h;
 }
 
@@ -255,7 +233,7 @@ var list=at.filter(function(a){if(eF==='Equinos'&&(a.especie||'Bovino')!=='Equin
 var donos=[];at.forEach(function(a){if(a.dono&&donos.indexOf(a.dono)<0)donos.push(a.dono)});donos.sort();
 var cats=['','Equinos','Vacas','Bois','Bezerro','Bezerra','Novilho 1','Novilha 1','Novilho 2','Novilha 2'];
 var h='<div class="tt">Rebanho</div><div class="stt">'+at.length+' ativos</div>';
-h+='<div class="action-row"><button class="btn btn1" onclick="editGado()">+ Entrada</button><button class="btn btnD" onclick="openSh(\'sh-perda\')">⚠️ Perda</button></div>';
+h+='<div class="action-row"><button class="btn btn1" onclick="editGado()">+ Entrada</button><button class="btn btn2" onclick="openSh(\'sh-mov\')">🔄 Transferir</button><button class="btn btnD" onclick="openSh(\'sh-perda\')">⚠️ Perda</button></div>';
 h+='<input class="srch" id="sr-r" placeholder="🔍 Buscar..." value="'+s+'" oninput="rReb()">';
 h+='<select class="filter-select" onchange="setDn(this)"><option value="">👤 Todos</option>';donos.forEach(function(d){h+='<option value="'+d+'"'+(eDn===d?' selected':'')+'>'+d+'</option>'});h+='</select>';
 h+='<div class="chips">';cats.forEach(function(c){h+='<div class="chip'+(eF===c?' on':'')+'" onclick="setEF(\''+c+'\')">'+(c||'Todos')+'</div>'});h+='</div><div class="cl">';
@@ -268,21 +246,22 @@ window.rReb=rReb;
 
 function rVend(){
 var h='<div class="tt">Vendas</div><div class="action-row"><button class="btn btn1" onclick="openSh(\'sh-venda\')">+ Nova Venda</button></div><div class="cl">';
-if(V.length){V.slice().sort(function(a,b){return(b.data||'')>(a.data||'')?1:-1}).forEach(function(v){var tV=(v.itens||[]).reduce(function(s,i){return s+Number(i.total||0)},0);h+='<div class="cd"><div style="display:flex;justify-content:space-between"><div><b>'+v.comp+'</b><div style="font-size:.6rem;color:var(--mt)">'+fmt(v.data)+' • '+(v.itens||[]).length+' animal(is)</div></div><b style="color:var(--gold)">'+money(tV)+'</b></div></div>'})}else h+='<div class="empty">Nenhuma venda</div>';
+if(V.length){V.slice().sort(function(a,b){return(b.data||'')>(a.data||'')?1:-1}).forEach(function(v){var tV=(v.itens||[]).reduce(function(s,i){return s+Number(i.total||0)},0);h+='<div class="cd"><div style="display:flex;justify-content:space-between"><div><b>'+(v.comp||'-')+'</b><div style="font-size:.6rem;color:var(--mt)">'+fmt(v.data)+' • '+(v.itens||[]).length+' animal(is)</div></div><b style="color:var(--gold)">'+money(tV)+'</b></div></div>'})}else h+='<div class="empty">Nenhuma venda</div>';
 h+='</div>';$('pg-vend').innerHTML=h;
 }
 
 function rDesp(){
-var h='<div class="tt">Despesas</div><div class="action-row"><button class="btn btn1" onclick="editDesp()">+ Nova Despesa</button></div><div class="cl">';
+var h='<div class="tt">Despesas</div><div class="action-row"><button class="btn btn1" onclick="editDesp()">+ Nova Despesa</button></div>';
 var tot=DE.reduce(function(s,d){return s+Number(d.valor||0)},0);
 if(tot)h+='<div class="sb" style="margin-bottom:10px"><div class="sl">Total</div><div class="sv r">'+money(tot)+'</div></div>';
-if(DE.length){DE.slice().sort(function(a,b){return(b.data||'')>(a.data||'')?1:-1}).forEach(function(d){h+='<div class="cd" style="padding:9px 12px"><div style="display:flex;justify-content:space-between"><div><span class="bdg bdg-ok">'+d.cat+'</span><div style="font-size:.72rem;margin-top:2px">'+(d.desc||'-')+'</div><div style="font-size:.6rem;color:var(--mt)">'+fmt(d.data)+' • '+gp(d.prop)+'</div></div><b style="color:var(--r)">'+money(d.valor)+'</b></div><div class="cd-acts"><button class="btn btn-s btn1" onclick="editDesp(\''+d.id+'\')">✏️</button><button class="btn btn-s btnD" onclick="delD(\''+d.id+'\')">🗑</button></div></div>'})}else h+='<div class="empty">Sem despesas</div>';
+h+='<div class="cl">';
+if(DE.length){DE.slice().sort(function(a,b){return(b.data||'')>(a.data||'')?1:-1}).forEach(function(d){h+='<div class="cd" style="padding:9px 12px"><div style="display:flex;justify-content:space-between"><div><span class="bdg bdg-ok">'+d.cat+'</span><div style="font-size:.7rem;margin-top:2px">'+(d.desc||'-')+'</div><div style="font-size:.58rem;color:var(--mt)">'+fmt(d.data)+' • '+gp(d.prop)+'</div></div><b style="color:var(--r)">'+money(d.valor)+'</b></div><div class="cd-acts"><button class="btn btn-s btn1" onclick="editDesp(\''+d.id+'\')">✏️</button><button class="btn btn-s btnD" onclick="delD(\''+d.id+'\')">🗑</button></div></div>'})}else h+='<div class="empty">Sem despesas</div>';
 h+='</div>';$('pg-desp').innerHTML=h;
 }
 
 function rProp(){
 var h='<div class="tt">Propriedades</div><div class="action-row"><button class="btn btn1" onclick="editProp()">+ Nova</button></div><div class="cl">';
-P.forEach(function(p){var ct=G.filter(function(a){return a.prop===p.id&&a.st==='Ativo'}).length;h+='<div class="cd"><div class="cd-top"><div class="cd-av">📍</div><div class="cd-info"><div class="cd-nm">'+p.nome+'</div><div class="cd-sub">'+p.tipo+' • '+(p.local||'')+'</div></div><span class="bdg bdg-ok">'+ct+'</span></div><div class="cd-meta"><span>Dono: <b>'+(p.dono||'-')+'</b></span></div><div class="cd-acts"><button class="btn btn-s btn1" onclick="editProp(\''+p.id+'\')">✏️</button><button class="btn btn-s btnD" onclick="delP(\''+p.id+'\')">🗑</button></div></div>'});
+P.forEach(function(p){var ct=G.filter(function(a){return a.prop===p.id&&a.st==='Ativo'}).length;h+='<div class="cd"><div class="cd-top"><div class="cd-av">📍</div><div class="cd-info"><div class="cd-nm">'+p.nome+'</div><div class="cd-sub">'+(p.tipo||'')+' • '+(p.local||'')+'</div></div><span class="bdg bdg-ok">'+ct+'</span></div><div class="cd-meta"><span>Dono: <b>'+(p.dono||'-')+'</b></span></div><div class="cd-acts"><button class="btn btn-s btn1" onclick="editProp(\''+p.id+'\')">✏️</button><button class="btn btn-s btnD" onclick="delP(\''+p.id+'\')">🗑</button></div></div>'});
 if(!P.length)h+='<div class="empty">Nenhuma</div>';
 h+='</div>';$('pg-prop').innerHTML=h;
 }
